@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  backend:
+    container_name: point_backend
+    build:
+      context: .
+      dockerfile: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - neo4j
+    environment:
+      NEO4J_USERNAME: neo4j_username
+      NEO4J_PASSWORD: neo4j_password
+
+  frontend:
+    container_name: point_frontend
+    build:
+      context: .
+      dockerfile: ./frontend/pointsystem
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+
+  neo4j:
+    container_name: point-backend-database
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j_username/neo4j_password
+    volumes:
+      - neo4j-data:/data
+
+volumes:
+  neo4j-data:

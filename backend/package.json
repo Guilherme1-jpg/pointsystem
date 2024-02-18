@@ -1,0 +1,25 @@
+{
+  "name": "pointsystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:watch": "nodemon node src/infra/server/server.js",
+    "start": "node src/infra/server/server.js",
+    "test": "npx mocha src/test/pointTest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mocha": "^10.3.0",
+    "neo4j-driver": "^4.3.1",
+    "nodemon": "^2.0.12",
+    "restify": "^8.5.1",
+    "restify-cors-middleware": "^1.1.1"
+  }
+}
