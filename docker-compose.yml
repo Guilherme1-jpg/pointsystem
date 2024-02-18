@@ -18,7 +18,7 @@ services:
     container_name: point_frontend
     build:
       context: .
-      dockerfile: ./frontend/pointsystem
+      dockerfile: ./frontend
     ports:
       - "8080:8080"
     depends_on:
